@@ -1,0 +1,41 @@
+# Rebuilds data/products.json whenever a product is added, edited or removed
+# from the admin panel. Runs on GitHub for free; Netlify is not involved.
+name: Build product list
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/products/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-products
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Merge product files into data/products.json
+        run: node scripts/build.js
+      - name: Commit the updated list
+        run: |
+          if git diff --quiet -- data/products.json; then
+            echo "No change to products.json"
+            exit 0
+          fi
+          git config user.name "goldthrifts-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/products.json
+          git commit -m "Update product list"
+          git push
