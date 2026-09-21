@@ -51,7 +51,7 @@ git init
 git add .
 git commit -m "Goldthrifts store"
 git branch -M main
-git remote add origin https://github.com/YOUR-GITHUB-USERNAME/goldthrifts-store.git
+git remote add origin https://github.com/Olajr0452/goldthrifts-store.git
 git push -u origin main
 ```
 
@@ -69,7 +69,7 @@ The admin page logs in with GitHub. Netlify handles the handshake, you only need
    - Authorization callback URL: `https://api.netlify.com/auth/done`
    - Click **Register application**, then **Generate a new client secret**. Keep this tab open.
 2. In Netlify go to **Site configuration → Access & security → OAuth → Install provider → GitHub**, paste the Client ID and Client secret, save.
-3. Open `admin/config.yml` in this folder and change `YOUR-GITHUB-USERNAME/goldthrifts-store` to your real `username/repo`. Also change the two `goldthrifts.netlify.app` lines to your real site URL. Commit and push:
+3. Open `admin/config.yml` in this folder and change `Olajr0452/goldthrifts-store` to your real `username/repo`. Also change the two `goldthrifts.netlify.app` lines to your real site URL. Commit and push:
 
 ```bash
 git add admin/config.yml && git commit -m "Point admin at the repo" && git push

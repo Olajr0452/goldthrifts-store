@@ -2,7 +2,7 @@
 # One-time setup: replace YOUR-GITHUB-USERNAME below with the GitHub account that owns the repo.
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/goldthrifts-store
+  repo: Olajr0452/goldthrifts-store
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
