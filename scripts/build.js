@@ -8,6 +8,7 @@ const src = path.join(root, "content", "products");
 const outDir = path.join(root, "data");
 const out = path.join(outDir, "products.json");
 
+fs.mkdirSync(src, { recursive: true });
 const products = fs
   .readdirSync(src)
   .filter((f) => f.endsWith(".json"))
