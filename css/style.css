@@ -24,6 +24,8 @@
   --peach: #FCA884;
   --peach-tint: #FFE6D8;
   --green: #25D366;
+  --wa: #25D366;
+  --wa-deep: #1DA851;
   --red: #FF3B30;
 
   --r-sm: 12px; --r-md: 16px; --r-lg: 20px; --r-xl: 28px; --r-pill: 999px;
@@ -460,3 +462,44 @@ h1, h2, h3, p { margin: 0; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- WhatsApp brand ---------- */
+.icon-btn--wa { color: var(--wa); }
+.icon-btn--wa:hover { background: #E9FBF0; }
+.round-btn--wa { color: var(--wa); }
+.round-btn--wa:hover { background: var(--wa); color: #fff; border-color: var(--wa); }
+.btn-wa { background: var(--wa); color: #fff; }
+.btn-wa:hover { background: var(--wa-deep); }
+.footer li a[data-link="whatsapp"] svg { color: var(--wa); }
+.drawer a[data-link="whatsapp"] svg { color: var(--wa); }
+
+/* ---------- Layout tweak after removing the intro ---------- */
+.section--first { padding-top: 56px; }
+@media (max-width: 720px) { .section--first { padding-top: 40px; } }
+
+/* ---------- Saved items panel ---------- */
+.saved { position: fixed; inset: 0; z-index: 55; display: none; }
+.saved.is-open { display: block; }
+.saved__scrim { position: absolute; inset: 0; background: rgba(0,0,0,.45); }
+.saved__panel {
+  position: absolute; right: 12px; top: 12px; bottom: 12px; width: min(420px, calc(100% - 24px));
+  background: #fff; border-radius: 24px; padding: 20px; box-shadow: var(--shadow-drag);
+  display: flex; flex-direction: column; animation: slide-in-right var(--ease) 260ms;
+}
+@keyframes slide-in-right { from { transform: translateX(20px); opacity: 0; } to { transform: none; opacity: 1; } }
+.saved__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.saved__title { font-size: 20px; font-weight: 500; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 8px; }
+.saved__title .chip__count { border: 1px solid var(--line); background: #fff; }
+.saved__list { flex: 1; overflow-y: auto; margin: 0 -8px; padding: 0 8px; }
+.saved__list .empty { padding: 48px 8px; }
+.saved__item { display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line-2); }
+.saved__item:last-child { border-bottom: 0; }
+.saved__img { width: 64px; height: 72px; border-radius: 10px; overflow: hidden; background: var(--fill); display: block; }
+.saved__img img { width: 100%; height: 100%; object-fit: cover; }
+.saved__item.is-sold .saved__img img { opacity: .5; filter: grayscale(.5); }
+.saved__meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.saved__name { font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.saved__name:hover { text-decoration: underline; text-underline-offset: 3px; }
+.saved__price { font-size: 13px; color: var(--text-2); }
+.saved__sold { font-size: 11px; font-weight: 600; color: var(--text-3); margin-left: 6px; }
+.saved__hint { font-size: 12px; color: var(--text-3); text-align: center; padding-top: 12px; border-top: 1px solid var(--line); }

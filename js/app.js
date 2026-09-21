@@ -60,7 +60,7 @@
 
   const ICONS = {
     heart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2Z"/></svg>',
-    wa: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3.3 4.4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.1-1.4l-.5-.3-2-1c-.3-.1-.5-.1-.7.2l-.9 1.1c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5v-.5l-.9-2.2c-.2-.5-.4-.5-.6-.5h-.7Z"/></svg>',
+    wa: "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z\"/></svg>",
     share: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M12 15V3m0 0L8 7m4-4 4 4"/></svg>',
     check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>',
     hanger: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a2 2 0 0 0-2 2c0 1 .8 1.6 2 2.5V11L3 17v2h18v-2l-9-6"/></svg>',
@@ -70,7 +70,7 @@
   function bindSettings() {
     const s = state.settings;
     const pretty = {
-      shopName: s.shopName, shopSuffix: s.shopSuffix, introHeading: s.introHeading, introText: s.introText,
+      shopName: s.shopName, shopSuffix: s.shopSuffix,
       footerNote: s.footerNote, location: s.location,
       whatsappPretty: "+" + (s.whatsapp || "").replace(/\D/g, ""),
       instagramPretty: s.instagram ? "@" + s.instagram : "",
@@ -118,7 +118,7 @@
           '<div class="card__foot">' + price +
             '<div class="card__actions">' +
               '<button class="round-btn' + (saved ? " is-saved" : "") + '" data-wish="' + esc(p.id) + '" aria-label="' + (saved ? "Remove from saved" : "Save") + '" aria-pressed="' + saved + '">' + ICONS.heart + "</button>" +
-              '<a class="round-btn" href="' + waProductLink(p) + '" target="_blank" rel="noopener" aria-label="Ask about ' + esc(p.name) + ' on WhatsApp">' + ICONS.wa + "</a>" +
+              '<a class="round-btn round-btn--wa" href="' + waProductLink(p) + '" target="_blank" rel="noopener" aria-label="Ask about ' + esc(p.name) + ' on WhatsApp">' + ICONS.wa + "</a>" +
             "</div>" +
           "</div>" +
         "</div>" +
@@ -140,7 +140,7 @@
         b.classList.toggle("is-saved", on);
         b.setAttribute("aria-pressed", String(on));
       });
-      if (state.filters.special === "saved" && document.body.dataset.page === "home") renderGrid();
+      renderSavedPanel();
     });
   }
 
@@ -181,17 +181,6 @@
     $("#hero").addEventListener("pointerenter", () => clearInterval(timer));
     $("#hero").addEventListener("pointerleave", () => { timer = setInterval(() => showSlide(idx + 1), 7000); });
 
-    // Promo cards
-    if (s.promo1) {
-      $("#promo1Img").src = s.promo1.image || ""; $("#promo1Img").alt = s.promo1.title || "";
-      $("#promo1Title").textContent = s.promo1.title || ""; $("#promo1Text").textContent = s.promo1.text || "";
-    }
-    if (s.promo2) {
-      $("#promo2Img").src = s.promo2.image || ""; $("#promo2Img").alt = s.promo2.title || "";
-      $("#promo2Title").textContent = s.promo2.title || ""; $("#promo2Text").textContent = s.promo2.text || "";
-      $("#promo2Year").textContent = s.promo2.year || ""; $("#promo2Label").textContent = s.promo2.label || "";
-    }
-
     // Category select + pills (only categories that have products, in fixed order)
     const present = CATEGORIES.filter((c) => state.products.some((p) => p.category === c));
     const sel = $("#catSelect");
@@ -217,7 +206,6 @@
     input.addEventListener("input", () => { clearTimeout(t); t = setTimeout(() => setFilter({ q: input.value.trim() }), 180); });
     $("#searchBtn").addEventListener("click", () => setFilter({ q: input.value.trim() }));
     const sf = $("#searchFocus"); if (sf) sf.addEventListener("click", () => input.focus());
-    $("#savedBtn").addEventListener("click", () => setFilter({ special: state.filters.special === "saved" ? "" : "saved" }));
     $("#grid").addEventListener("click", (e) => {
       const more = e.target.closest("[data-more]"); if (more) { state.shown += PAGE_SIZE; renderGrid(); }
       const clear = e.target.closest("[data-clear]"); if (clear) clearFilters();
@@ -231,7 +219,8 @@
     function applyHash() {
       const h = (location.hash || "").replace("#", "").toLowerCase();
       if (!h) return;
-      if (h === "new" || h === "sale" || h === "saved") setFilter({ special: h }, true);
+      if (h === "saved") { openSaved(); return; }
+      if (h === "new" || h === "sale") setFilter({ special: h }, true);
       else if (["men", "women", "children", "unisex"].includes(h)) setFilter({ audience: h[0].toUpperCase() + h.slice(1) }, true);
       else if (h === "browse") { $("#browse").scrollIntoView({ behavior: "smooth", block: "start" }); return; }
       else return;
@@ -260,7 +249,6 @@
     $$("[data-cat]").forEach((b) => b.classList.toggle("is-active", b.getAttribute("data-cat") === f.category));
     $$("[data-special]").forEach((b) => b.classList.toggle("is-active", b.getAttribute("data-special") === f.special));
     $$("[data-audience]").forEach((b) => b.classList.toggle("is-active", b.getAttribute("data-audience") === f.audience));
-    $("#savedBtn").classList.toggle("is-active", f.special === "saved");
   }
   function filtered() {
     const f = state.filters;
@@ -270,7 +258,6 @@
       if (f.audience && p.audience !== f.audience && p.audience !== "Unisex") return false;
       if (f.special === "new" && !p.new) return false;
       if (f.special === "sale" && !isSale(p)) return false;
-      if (f.special === "saved" && !state.wishlist.has(p.id)) return false;
       if (q) {
         const hay = [p.name, p.summary, p.description, p.category, p.audience, p.condition, (p.sizes || []).join(" ")].join(" ").toLowerCase();
         if (!hay.includes(q)) return false;
@@ -286,8 +273,7 @@
     if (!list.length) {
       const f = state.filters;
       let msg = "Nothing here yet.";
-      if (f.special === "saved") msg = "You haven't saved anything yet. Tap the heart on any item to keep it here.";
-      else if (f.q) msg = "No items match “" + f.q + "”. Try another word or clear the filters.";
+      if (f.q) msg = "No items match “" + f.q + "”. Try another word or clear the filters.";
       else if (f.special === "sale") msg = "Nothing is on sale right now. Check back soon.";
       else if (f.special === "new") msg = "No new arrivals right now. New pieces drop every week.";
       else if (f.category || f.audience) msg = "Nothing in this section right now. New pieces drop every week.";
@@ -363,7 +349,7 @@
           '<div class="cta__row"><a class="btn-outline" href="' + waLink("Hi " + state.settings.shopName + "! *" + p.name + "* is sold out. Do you have anything similar?") + '" target="_blank" rel="noopener">' + ICONS.wa + " Ask for something similar</a>" +
           '<button class="btn-outline' + (state.wishlist.has(p.id) ? " is-saved" : "") + '" data-wish="' + esc(p.id) + '">' + ICONS.heart + " Save</button></div>";
       }
-      return '<a class="btn-dark" href="' + link + '" target="_blank" rel="noopener">' + ICONS.wa + " Chat on WhatsApp to buy</a>" +
+      return '<a class="btn-dark btn-wa" href="' + link + '" target="_blank" rel="noopener">' + ICONS.wa + " Chat on WhatsApp to buy</a>" +
         '<div class="cta__row">' +
           '<button class="btn-outline' + (state.wishlist.has(p.id) ? " is-saved" : "") + '" data-wish="' + esc(p.id) + '">' + ICONS.heart + " Save</button>" +
           '<button class="btn-outline" id="shareBtn">' + ICONS.share + " Share</button>" +
@@ -373,7 +359,7 @@
     function stickyHTML() {
       if (p.soldOut) return '<button class="btn-dark is-disabled" disabled>Sold out</button><button class="round-btn' + (state.wishlist.has(p.id) ? " is-saved" : "") + '" data-wish="' + esc(p.id) + '" aria-label="Save">' + ICONS.heart + "</button>";
       return '<button class="round-btn' + (state.wishlist.has(p.id) ? " is-saved" : "") + '" data-wish="' + esc(p.id) + '" aria-label="Save">' + ICONS.heart + "</button>" +
-        '<a class="btn-dark" href="' + waProductLink(p, size) + '" target="_blank" rel="noopener">' + ICONS.wa + " Chat on WhatsApp</a>";
+        '<a class="btn-dark btn-wa" href="' + waProductLink(p, size) + '" target="_blank" rel="noopener">' + ICONS.wa + " Chat on WhatsApp</a>";
     }
     function renderCta() {
       $("#cta").innerHTML = ctaHTML();
@@ -417,6 +403,66 @@
     }
   }
 
+  /* ---------- saved items panel ---------- */
+  function ensureSavedPanel() {
+    if ($("#savedPanel")) return;
+    const el = document.createElement("div");
+    el.className = "saved";
+    el.id = "savedPanel";
+    el.setAttribute("aria-hidden", "true");
+    el.innerHTML =
+      '<div class="saved__scrim" data-close-saved></div>' +
+      '<aside class="saved__panel" role="dialog" aria-label="Saved items">' +
+        '<div class="saved__head"><h2 class="saved__title">Saved items <span class="chip__count" id="savedPanelCount"></span></h2>' +
+        '<button class="icon-btn" data-close-saved aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>' +
+        '<div class="saved__list" id="savedList"></div>' +
+        '<p class="saved__hint">Saved on this device only. Tap the WhatsApp icon to ask about an item.</p>' +
+      "</aside>";
+    document.body.appendChild(el);
+    $$("[data-close-saved]", el).forEach((b) => b.addEventListener("click", closeSaved));
+    wireWishlist($("#savedList"));
+  }
+  function openSaved() {
+    ensureSavedPanel();
+    renderSavedPanel();
+    const el = $("#savedPanel");
+    el.classList.add("is-open");
+    el.setAttribute("aria-hidden", "false");
+  }
+  function closeSaved() {
+    const el = $("#savedPanel");
+    if (!el) return;
+    el.classList.remove("is-open");
+    el.setAttribute("aria-hidden", "true");
+    if (location.hash === "#saved") history.replaceState(null, "", location.pathname + location.search);
+  }
+  function renderSavedPanel() {
+    const list = $("#savedList");
+    if (!list) return;
+    const items = state.products.filter((p) => state.wishlist.has(p.id));
+    $("#savedPanelCount").textContent = items.length ? String(items.length) : "";
+    if (!items.length) {
+      list.innerHTML = '<div class="empty"><div class="empty__icon">' + ICONS.heart + "</div><p>Nothing saved yet. Tap the heart on any item to keep it here.</p></div>";
+      return;
+    }
+    list.innerHTML = items.map((p) =>
+      '<div class="saved__item' + (p.soldOut ? " is-sold" : "") + '">' +
+        '<a class="saved__img" href="/product.html?id=' + encodeURIComponent(p.id) + '"><img src="' + esc((p.images && p.images[0]) || "") + '" alt="" /></a>' +
+        '<div class="saved__meta"><a class="saved__name" href="/product.html?id=' + encodeURIComponent(p.id) + '">' + esc(p.name) + "</a>" +
+          '<span class="saved__price">' + naira(p.price) + (p.soldOut ? ' <span class="saved__sold">Sold out</span>' : "") + "</span></div>" +
+        '<div class="card__actions">' +
+          '<a class="round-btn round-btn--wa" href="' + waProductLink(p) + '" target="_blank" rel="noopener" aria-label="Ask about ' + esc(p.name) + ' on WhatsApp">' + ICONS.wa + "</a>" +
+          '<button class="round-btn" data-wish="' + esc(p.id) + '" aria-label="Remove from saved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
+        "</div>" +
+      "</div>").join("");
+  }
+  function wireSavedOpeners() {
+    const btn = $("#savedBtn");
+    if (btn) btn.addEventListener("click", (e) => { e.preventDefault(); openSaved(); });
+    $$("[data-open-saved]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); openSaved(); }));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSaved(); });
+  }
+
   /* ---------- boot ---------- */
   async function boot() {
     wireDrawer();
@@ -440,8 +486,10 @@
       return;
     }
     bindSettings();
+    wireSavedOpeners();
     if (page === "home") initHome();
     if (page === "product") initProduct();
+    if (location.hash === "#saved") openSaved();
   }
   document.addEventListener("DOMContentLoaded", boot);
 })();

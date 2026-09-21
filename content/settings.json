@@ -29,19 +29,5 @@
       "caption": "Sale"
     }
   ],
-  "introHeading": "Fresh finds, modern vibes.",
-  "introText": "Our rack is updated every week with hand-picked thrift pieces, checked and cleaned so you always look on point. Find something you like and chat with us on WhatsApp to buy.",
-  "promo1": {
-    "image": "/images/site/promo-1.jpg",
-    "title": "Thrift the unlimited",
-    "text": "-Curated pre-loved fashion, one of each."
-  },
-  "promo2": {
-    "image": "/images/site/promo-2.jpg",
-    "title": "Hold on, new drops are coming!",
-    "text": "-Bringing you a new era of good thrift.",
-    "year": "2026",
-    "label": "New arrival drop"
-  },
   "footerNote": "Every piece is inspected, cleaned and photographed by us. Prices are in Naira. Delivery within Lagos and nationwide via courier."
 }
