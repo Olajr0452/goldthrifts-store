@@ -1,0 +1,20 @@
+{
+  "name": "Classic white tee",
+  "price": 6500,
+  "audience": "Men",
+  "category": "Tops",
+  "condition": "Excellent",
+  "sizes": [
+    "M",
+    "L",
+    "XL"
+  ],
+  "summary": "Heavyweight cotton, crisp white, zero stains.",
+  "description": "A proper heavyweight cotton tee that holds its shape. Thrifted in excellent condition with no marks, pilling or stretched collar. Pairs with everything you already own.",
+  "images": [
+    "/images/products/classic-white-tee.jpg"
+  ],
+  "new": true,
+  "soldOut": false,
+  "date": "2026-09-21T09:00:00.000Z"
+}

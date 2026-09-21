@@ -1,0 +1,19 @@
+{
+  "name": "Tan leather jacket",
+  "price": 38000,
+  "audience": "Men",
+  "category": "Outerwear",
+  "condition": "Excellent",
+  "sizes": [
+    "L",
+    "XL"
+  ],
+  "summary": "Tan leather jacket with a shirt collar.",
+  "description": "Sharp tan leather jacket with a shirt collar and zip front. Supple leather, clean lining, working pockets. Looks expensive because it was.",
+  "images": [
+    "/images/products/tan-leather-jacket.jpg"
+  ],
+  "new": true,
+  "soldOut": false,
+  "date": "2026-09-06T09:00:00.000Z"
+}

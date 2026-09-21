@@ -1,0 +1,20 @@
+{
+  "name": "Retro graphic tee",
+  "price": 6500,
+  "audience": "Women",
+  "category": "Tops",
+  "condition": "Good",
+  "sizes": [
+    "S",
+    "M"
+  ],
+  "summary": "White tee with a retro travel print.",
+  "description": "Relaxed white tee with a vintage travel-poster print. Slightly cropped, boxy fit. Minor softening on the print that suits the retro look.",
+  "images": [
+    "/images/products/retro-graphic-tee.jpg"
+  ],
+  "new": false,
+  "soldOut": false,
+  "date": "2026-09-07T09:00:00.000Z",
+  "oldPrice": 8000
+}

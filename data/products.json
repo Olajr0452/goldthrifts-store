@@ -1,0 +1,370 @@
+[
+  {
+    "id": "classic-white-tee",
+    "name": "Classic white tee",
+    "price": 6500,
+    "audience": "Men",
+    "category": "Tops",
+    "condition": "Excellent",
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "summary": "Heavyweight cotton, crisp white, zero stains.",
+    "description": "A proper heavyweight cotton tee that holds its shape. Thrifted in excellent condition with no marks, pilling or stretched collar. Pairs with everything you already own.",
+    "images": [
+      "/images/products/classic-white-tee.jpg"
+    ],
+    "new": true,
+    "soldOut": false,
+    "date": "2026-09-21T09:00:00.000Z"
+  },
+  {
+    "id": "sage-linen-shirt",
+    "name": "Sage linen shirt",
+    "price": 12000,
+    "audience": "Men",
+    "category": "Tops",
+    "condition": "Like new",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "summary": "Breathable linen blend in a soft sage green.",
+    "description": "Relaxed-fit linen shirt with a soft sage colour that works for Lagos heat. Worn twice by the previous owner and still looks like it came off the rack.",
+    "images": [
+      "/images/products/sage-linen-shirt.jpg"
+    ],
+    "new": true,
+    "soldOut": false,
+    "date": "2026-09-20T09:00:00.000Z",
+    "oldPrice": 15000
+  },
+  {
+    "id": "vintage-levis-501",
+    "name": "Vintage Levi's 501",
+    "price": 18000,
+    "audience": "Men",
+    "category": "Bottoms",
+    "condition": "Good",
+    "sizes": [
+      "32",
+      "34",
+      "36"
+    ],
+    "summary": "Straight-leg dark wash, the real vintage cut.",
+    "description": "Genuine Levi's 501 in a dark indigo wash. Slight honest fading on the thighs that only makes it better. Button fly, straight leg, made to last another decade.",
+    "images": [
+      "/images/products/vintage-levis-501.jpg"
+    ],
+    "new": true,
+    "soldOut": false,
+    "date": "2026-09-19T09:00:00.000Z"
+  },
+  {
+    "id": "tan-bomber-jacket",
+    "name": "Tan bomber jacket",
+    "price": 22000,
+    "audience": "Women",
+    "category": "Outerwear",
+    "condition": "Excellent",
+    "sizes": [
+      "S",
+      "M"
+    ],
+    "summary": "Lightweight nylon bomber in a warm tan.",
+    "description": "Classic bomber silhouette with ribbed cuffs and hem, two front pockets and a smooth zip. Light enough for evening breeze, sharp enough for brunch.",
+    "images": [
+      "/images/products/tan-bomber-jacket.jpg"
+    ],
+    "new": true,
+    "soldOut": false,
+    "date": "2026-09-18T09:00:00.000Z"
+  },
+  {
+    "id": "blush-cargo-joggers",
+    "name": "Blush cargo joggers",
+    "price": 9500,
+    "audience": "Women",
+    "category": "Bottoms",
+    "condition": "Like new",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "summary": "Soft pink cargo joggers with cuffed ankles.",
+    "description": "Cargo-style joggers in a dusty blush with elasticated waist and cuffed ankles. Roomy side pockets, soft brushed fabric, perfect for travel days.",
+    "images": [
+      "/images/products/blush-cargo-joggers.jpg"
+    ],
+    "new": false,
+    "soldOut": false,
+    "date": "2026-09-17T09:00:00.000Z"
+  },
+  {
+    "id": "mustard-hoodie-set",
+    "name": "Mustard hoodie set",
+    "price": 16000,
+    "audience": "Women",
+    "category": "Loungewear",
+    "condition": "Excellent",
+    "sizes": [
+      "M",
+      "L"
+    ],
+    "summary": "Two-piece hoodie and jogger set in mustard.",
+    "description": "Matching cropped hoodie and joggers in a bold mustard yellow. Thick fleece lining, drawstring hood, great condition with no fading.",
+    "images": [
+      "/images/products/mustard-hoodie-set.jpg"
+    ],
+    "new": true,
+    "soldOut": false,
+    "date": "2026-09-16T09:00:00.000Z",
+    "oldPrice": 20000
+  },
+  {
+    "id": "camel-wrap-coat",
+    "name": "Camel wrap coat",
+    "price": 35000,
+    "audience": "Women",
+    "category": "Outerwear",
+    "condition": "Excellent",
+    "sizes": [
+      "M",
+      "L"
+    ],
+    "summary": "Long belted wrap coat in classic camel.",
+    "description": "A statement camel wrap coat with a tie belt and wide lapels. Wool blend, fully lined, no snags. The kind of piece that makes an airport outfit.",
+    "images": [
+      "/images/products/camel-wrap-coat.jpg"
+    ],
+    "new": true,
+    "soldOut": false,
+    "date": "2026-09-15T09:00:00.000Z"
+  },
+  {
+    "id": "light-wash-denim-jacket",
+    "name": "Light-wash denim jacket",
+    "price": 14000,
+    "audience": "Unisex",
+    "category": "Outerwear",
+    "condition": "Good",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "summary": "Boxy light-wash denim jacket, unisex fit.",
+    "description": "Classic trucker-style denim jacket in a faded light wash. Boxy unisex fit, brass buttons, chest pockets. Gently worn-in and softer for it.",
+    "images": [
+      "/images/products/light-wash-denim-jacket.jpg"
+    ],
+    "new": false,
+    "soldOut": false,
+    "date": "2026-09-14T09:00:00.000Z"
+  },
+  {
+    "id": "brown-leather-biker",
+    "name": "Brown leather biker jacket",
+    "price": 42000,
+    "audience": "Men",
+    "category": "Outerwear",
+    "condition": "Excellent",
+    "sizes": [
+      "M",
+      "L"
+    ],
+    "summary": "Real leather biker jacket in a rich brown.",
+    "description": "Genuine leather biker jacket with an asymmetric zip, snap collar and quilted lining. Buttery soft, no cracking, hardware all working. A forever piece.",
+    "images": [
+      "/images/products/brown-leather-biker.jpg"
+    ],
+    "new": true,
+    "soldOut": false,
+    "date": "2026-09-13T09:00:00.000Z"
+  },
+  {
+    "id": "black-graphic-tees",
+    "name": "Black graphic tee bundle",
+    "price": 8000,
+    "audience": "Men",
+    "category": "Tops",
+    "condition": "Good",
+    "sizes": [
+      "L",
+      "XL"
+    ],
+    "summary": "Bundle of three black band tees.",
+    "description": "Three black graphic tees sold together. Vintage band prints, slightly faded for that lived-in look. Message us for individual prints.",
+    "images": [
+      "/images/products/black-graphic-tees.jpg"
+    ],
+    "new": false,
+    "soldOut": true,
+    "date": "2026-09-12T09:00:00.000Z"
+  },
+  {
+    "id": "rust-knit-beanie",
+    "name": "Rust knit beanie",
+    "price": 3500,
+    "audience": "Women",
+    "category": "Accessories",
+    "condition": "Like new",
+    "sizes": [
+      "One size"
+    ],
+    "summary": "Chunky ribbed knit beanie in rust.",
+    "description": "Chunky ribbed beanie in a warm rust tone. Stretchy, soft, and looks great slouched or folded. Barely worn.",
+    "images": [
+      "/images/products/rust-knit-beanie.jpg"
+    ],
+    "new": false,
+    "soldOut": false,
+    "date": "2026-09-11T09:00:00.000Z"
+  },
+  {
+    "id": "striped-wide-leg-trousers",
+    "name": "Striped wide-leg trousers",
+    "price": 11000,
+    "audience": "Women",
+    "category": "Bottoms",
+    "condition": "Excellent",
+    "sizes": [
+      "S",
+      "M"
+    ],
+    "summary": "High-waist pinstripe wide-leg trousers.",
+    "description": "High-waisted wide-leg trousers with a fine pinstripe. Flowy, dramatic and office-safe at the same time. Hidden side zip, no loose threads.",
+    "images": [
+      "/images/products/striped-wide-leg-trousers.jpg"
+    ],
+    "new": true,
+    "soldOut": false,
+    "date": "2026-09-10T09:00:00.000Z"
+  },
+  {
+    "id": "tartan-scarf-tie-set",
+    "name": "Tartan scarf and tie set",
+    "price": 7000,
+    "audience": "Men",
+    "category": "Accessories",
+    "condition": "Like new",
+    "sizes": [
+      "One size"
+    ],
+    "summary": "Classic tartan scarf with a matching silk tie.",
+    "description": "A wool tartan scarf paired with a burgundy silk tie. Sold as a set. Gift-ready condition.",
+    "images": [
+      "/images/products/tartan-scarf-tie-set.jpg"
+    ],
+    "new": false,
+    "soldOut": false,
+    "date": "2026-09-09T09:00:00.000Z"
+  },
+  {
+    "id": "black-minimal-tee",
+    "name": "Black minimalist tee",
+    "price": 6000,
+    "audience": "Unisex",
+    "category": "Tops",
+    "condition": "Excellent",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "summary": "Plain black tee with a small chest print.",
+    "description": "Soft-touch black tee with a tiny chest print. Unisex cut, mid-weight cotton, no fading. Easy everyday piece.",
+    "images": [
+      "/images/products/black-minimal-tee.jpg"
+    ],
+    "new": false,
+    "soldOut": false,
+    "date": "2026-09-08T09:00:00.000Z"
+  },
+  {
+    "id": "retro-graphic-tee",
+    "name": "Retro graphic tee",
+    "price": 6500,
+    "audience": "Women",
+    "category": "Tops",
+    "condition": "Good",
+    "sizes": [
+      "S",
+      "M"
+    ],
+    "summary": "White tee with a retro travel print.",
+    "description": "Relaxed white tee with a vintage travel-poster print. Slightly cropped, boxy fit. Minor softening on the print that suits the retro look.",
+    "images": [
+      "/images/products/retro-graphic-tee.jpg"
+    ],
+    "new": false,
+    "soldOut": false,
+    "date": "2026-09-07T09:00:00.000Z",
+    "oldPrice": 8000
+  },
+  {
+    "id": "tan-leather-jacket",
+    "name": "Tan leather jacket",
+    "price": 38000,
+    "audience": "Men",
+    "category": "Outerwear",
+    "condition": "Excellent",
+    "sizes": [
+      "L",
+      "XL"
+    ],
+    "summary": "Tan leather jacket with a shirt collar.",
+    "description": "Sharp tan leather jacket with a shirt collar and zip front. Supple leather, clean lining, working pockets. Looks expensive because it was.",
+    "images": [
+      "/images/products/tan-leather-jacket.jpg"
+    ],
+    "new": true,
+    "soldOut": false,
+    "date": "2026-09-06T09:00:00.000Z"
+  },
+  {
+    "id": "red-structured-handbag",
+    "name": "Red structured handbag",
+    "price": 25000,
+    "audience": "Women",
+    "category": "Accessories",
+    "condition": "Like new",
+    "sizes": [
+      "One size"
+    ],
+    "summary": "Glossy red top-handle bag with gold clasp.",
+    "description": "Structured top-handle handbag in glossy red with a gold-tone clasp. Clean interior, no scuffs on the corners. Comes with a detachable strap.",
+    "images": [
+      "/images/products/red-structured-handbag.jpg"
+    ],
+    "new": true,
+    "soldOut": false,
+    "date": "2026-09-05T09:00:00.000Z"
+  },
+  {
+    "id": "cream-crewneck-sweatshirt",
+    "name": "Cream crewneck sweatshirt",
+    "price": 9000,
+    "audience": "Unisex",
+    "category": "Loungewear",
+    "condition": "Excellent",
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "summary": "Plain cream crewneck, fleece-lined.",
+    "description": "Fleece-lined crewneck sweatshirt in a soft cream. Ribbed cuffs and hem, unisex fit. Warm without being bulky.",
+    "images": [
+      "/images/products/cream-crewneck-sweatshirt.jpg"
+    ],
+    "new": false,
+    "soldOut": false,
+    "date": "2026-09-04T09:00:00.000Z"
+  }
+]

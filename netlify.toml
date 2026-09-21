@@ -1,0 +1,13 @@
+[build]
+  command = "node scripts/build.js"
+  publish = "."
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=60"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

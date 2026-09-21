@@ -1,0 +1,19 @@
+{
+  "name": "Brown leather biker jacket",
+  "price": 42000,
+  "audience": "Men",
+  "category": "Outerwear",
+  "condition": "Excellent",
+  "sizes": [
+    "M",
+    "L"
+  ],
+  "summary": "Real leather biker jacket in a rich brown.",
+  "description": "Genuine leather biker jacket with an asymmetric zip, snap collar and quilted lining. Buttery soft, no cracking, hardware all working. A forever piece.",
+  "images": [
+    "/images/products/brown-leather-biker.jpg"
+  ],
+  "new": true,
+  "soldOut": false,
+  "date": "2026-09-13T09:00:00.000Z"
+}

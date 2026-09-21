@@ -1,0 +1,107 @@
+# Goldthrifts admin panel (Decap CMS)
+# One-time setup: replace YOUR-GITHUB-USERNAME below with the GitHub account that owns the repo.
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/goldthrifts-store
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  commit_messages:
+    create: "Add product: {{slug}}"
+    update: "Update product: {{slug}}"
+    delete: "Remove product: {{slug}}"
+    uploadMedia: "Upload photo: {{path}}"
+    deleteMedia: "Delete photo: {{path}}"
+
+# Uncomment the next line while testing on your computer with `npx decap-server`
+# local_backend: true
+
+site_url: https://goldthrifts.netlify.app
+display_url: https://goldthrifts.netlify.app
+logo_url: /images/site/logo-lockup.png
+media_folder: "images/products"
+public_folder: "/images/products"
+editor:
+  preview: false
+
+collections:
+  - name: products
+    label: Products
+    label_singular: Product
+    description: "Every item on the shop. Tap New product to add one, tap an item to edit or delete it."
+    folder: content/products
+    extension: json
+    format: json
+    create: true
+    identifier_field: name
+    slug: "{{slug}}"
+    summary: "{{name}} — ₦{{price}}{{soldOut}}"
+    sortable_fields: [date, name, price]
+    view_filters:
+      - label: Sold out
+        field: soldOut
+        pattern: true
+      - label: New arrivals
+        field: new
+        pattern: true
+    fields:
+      - { label: "Name", name: "name", widget: "string", hint: "What the item is called, e.g. Camel wrap coat" }
+      - { label: "Price (₦)", name: "price", widget: "number", value_type: "int", min: 0, step: 500, hint: "Numbers only, no commas" }
+      - { label: "Old price (₦)", name: "oldPrice", widget: "number", value_type: "int", min: 0, step: 500, required: false, hint: "Fill this in only when the item is on sale. It shows crossed out next to the new price." }
+      - { label: "Who is it for?", name: "audience", widget: "select", options: ["Men", "Women", "Children", "Unisex"], default: "Women" }
+      - { label: "Category", name: "category", widget: "select", options: ["Tops", "Outerwear", "Bottoms", "Dresses", "Loungewear", "Sneakers", "Accessories"], default: "Tops" }
+      - { label: "Condition", name: "condition", widget: "select", options: ["Brand new", "Like new", "Excellent", "Good"], default: "Excellent" }
+      - { label: "Sizes available", name: "sizes", widget: "select", multiple: true, options: ["XS", "S", "M", "L", "XL", "XXL", "One size", "28", "30", "32", "34", "36", "38", "39", "40", "41", "42", "43", "44", "45"], hint: "Pick every size you have in stock" }
+      - { label: "Short description", name: "summary", widget: "string", hint: "One line shown under the name on the shop page" }
+      - { label: "Full description", name: "description", widget: "text", hint: "Fabric, fit, any marks, anything the buyer should know" }
+      - { label: "Photos", name: "images", widget: "list", field: { label: "Photo", name: "image", widget: "image" }, min: 1, hint: "First photo is the main one. Portrait photos look best." }
+      - { label: "Show in New arrivals", name: "new", widget: "boolean", default: true }
+      - { label: "Sold out", name: "soldOut", widget: "boolean", default: false, hint: "Turn this on when it's gone. It stays visible but greyed out." }
+      - { label: "Date added", name: "date", widget: "datetime", default: "{{now}}", hint: "Newest items show first" }
+
+  - name: settings
+    label: Shop settings
+    description: "Your shop name, WhatsApp number, social links and the words on the home page."
+    files:
+      - name: general
+        label: Shop details and home page
+        file: content/settings.json
+        fields:
+          - { label: "Shop name", name: "shopName", widget: "string" }
+          - { label: "Shop name suffix", name: "shopSuffix", widget: "string", default: "Store" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "WhatsApp number", name: "whatsapp", widget: "string", hint: "Country code first, no plus sign or spaces, e.g. 2348166287221" }
+          - { label: "Instagram username", name: "instagram", widget: "string", required: false }
+          - { label: "TikTok username", name: "tiktok", widget: "string", required: false }
+          - { label: "Location", name: "location", widget: "string", required: false }
+          - label: "Hero slides"
+            name: "hero"
+            widget: "list"
+            min: 1
+            max: 5
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Big title", name: "title", widget: "string" }
+              - { label: "Small text", name: "text", widget: "text" }
+              - { label: "Button label", name: "buttonLabel", widget: "string", default: "Start shopping" }
+              - { label: "Caption under button", name: "caption", widget: "string", default: "Top collection" }
+          - { label: "Intro heading", name: "introHeading", widget: "string" }
+          - { label: "Intro text", name: "introText", widget: "text" }
+          - label: "Left promo card"
+            name: "promo1"
+            widget: "object"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Small text", name: "text", widget: "string" }
+          - label: "Right promo card"
+            name: "promo2"
+            widget: "object"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Small text", name: "text", widget: "string" }
+              - { label: "Year", name: "year", widget: "string", default: "2026" }
+              - { label: "Label", name: "label", widget: "string", default: "New arrival drop" }
+          - { label: "Footer note", name: "footerNote", widget: "text", required: false }
