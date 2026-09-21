@@ -133,3 +133,5 @@ The heart icon saves items in the shopper's own browser only. It is a convenienc
 
 ### Photo credits
 Placeholder photos are from Unsplash and are free to use. Replace them with your own.
+
+<!-- Live at https://goldthrifts.netlify.app -->
