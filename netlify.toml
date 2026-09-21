@@ -1,6 +1,10 @@
 [build]
   command = "node scripts/build.js"
   publish = "."
+  # Skip the build (no deploy, no credits) when a commit only changed shop content.
+  # Products, photos, the generated list, the GitHub Action and the README are read
+  # straight from GitHub, so Netlify only needs to redeploy when the code changes.
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)content' ':(exclude)images/products' ':(exclude)data' ':(exclude).github' ':(exclude)README.md'"
 
 [[headers]]
   for = "/data/*"

@@ -3,6 +3,12 @@
 (function () {
   "use strict";
 
+  // Product data and photos are read straight from the GitHub repo, so publishing a
+  // product never needs a Netlify deploy. Locally the same files are served from disk,
+  // and if GitHub can't be reached the copy deployed on Netlify is used instead.
+  const LOCAL = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+  const GITHUB_BASE = "https://raw.githubusercontent.com/Olajr0452/goldthrifts-store/main";
+  let contentBase = LOCAL ? "" : GITHUB_BASE;
   const CATEGORIES = ["Tops", "Outerwear", "Bottoms", "Dresses", "Loungewear", "Sneakers", "Accessories"];
   const PAGE_SIZE = 12;
   const WISH_KEY = "gt_wishlist";
@@ -47,6 +53,11 @@
     if (size) msg += ", size " + size;
     msg += ". Is it still available?\n" + productUrl(p);
     return waLink(msg);
+  }
+  function asset(path) {
+    if (!path) return "";
+    if (/^https?:\/\//.test(path)) return path;
+    return contentBase + (path.startsWith("/") ? path : "/" + path);
   }
   function isSale(p) { return Number(p.oldPrice) > Number(p.price); }
   function toast(msg) {
@@ -105,7 +116,7 @@
     const price = sale
       ? '<span class="price-pill price-pill--dark"><s>' + naira(p.oldPrice) + "</s>" + naira(p.price) + "</span>"
       : '<span class="price-pill">' + naira(p.price) + "</span>";
-    const img = (p.images && p.images[0]) || "";
+    const img = asset((p.images && p.images[0]) || "");
     return (
       '<article class="card' + (p.soldOut ? " card--sold" : "") + '" data-id="' + esc(p.id) + '">' +
         '<a class="card__media" href="/product.html?id=' + encodeURIComponent(p.id) + '" aria-label="' + esc(p.name) + '">' +
@@ -160,7 +171,7 @@
     // Hero slides
     const slides = Array.isArray(s.hero) && s.hero.length ? s.hero : [{ image: "", title: s.shopName, text: s.tagline }];
     const wrap = $("#heroSlides");
-    wrap.innerHTML = slides.map((sl) => '<div class="hero__slide" style="background-image:url(\'' + esc(sl.image) + '\')"></div>').join("");
+    wrap.innerHTML = slides.map((sl) => '<div class="hero__slide" style="background-image:url(\'' + esc(asset(sl.image)) + '\')"></div>').join("");
     let idx = 0;
     function showSlide(i) {
       idx = (i + slides.length) % slides.length;
@@ -304,7 +315,7 @@
     const meta = document.querySelector('meta[name="description"]'); if (meta) meta.content = p.summary || "";
 
     const sale = isSale(p);
-    const imgs = p.images && p.images.length ? p.images : [""];
+    const imgs = p.images && p.images.length ? p.images.map(asset) : [""];
     let size = "";
     const badges = [];
     if (p.soldOut) badges.push('<span class="badge badge--sold">Sold out</span>');
@@ -447,7 +458,7 @@
     }
     list.innerHTML = items.map((p) =>
       '<div class="saved__item' + (p.soldOut ? " is-sold" : "") + '">' +
-        '<a class="saved__img" href="/product.html?id=' + encodeURIComponent(p.id) + '"><img src="' + esc((p.images && p.images[0]) || "") + '" alt="" /></a>' +
+        '<a class="saved__img" href="/product.html?id=' + encodeURIComponent(p.id) + '"><img src="' + esc(asset((p.images && p.images[0]) || "")) + '" alt="" /></a>' +
         '<div class="saved__meta"><a class="saved__name" href="/product.html?id=' + encodeURIComponent(p.id) + '">' + esc(p.name) + "</a>" +
           '<span class="saved__price">' + naira(p.price) + (p.soldOut ? ' <span class="saved__sold">Sold out</span>' : "") + "</span></div>" +
         '<div class="card__actions">' +
@@ -464,6 +475,18 @@
   }
 
   /* ---------- boot ---------- */
+  async function fetchJSON(path) {
+    if (contentBase) {
+      try {
+        const r = await fetch(contentBase + path, { cache: "no-cache" });
+        if (r.ok) return await r.json();
+      } catch (e) { /* fall through to the Netlify copy */ }
+      contentBase = "";
+    }
+    const r = await fetch(path, { cache: "no-cache" });
+    if (!r.ok) throw new Error("Failed to load " + path);
+    return await r.json();
+  }
   async function boot() {
     wireDrawer();
     saveWishlist();
@@ -474,8 +497,8 @@
     }
     try {
       const [s, p] = await Promise.all([
-        fetch("/content/settings.json", { cache: "no-cache" }).then((r) => r.json()),
-        fetch("/data/products.json", { cache: "no-cache" }).then((r) => r.json()),
+        fetchJSON("/content/settings.json"),
+        fetchJSON("/data/products.json"),
       ]);
       state.settings = s;
       state.products = (p || []).filter((x) => x && x.name);
