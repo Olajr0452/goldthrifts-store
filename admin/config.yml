@@ -35,7 +35,7 @@ collections:
     create: true
     identifier_field: name
     slug: "{{slug}}"
-    summary: "{{name}} — ₦{{price}}{{soldOut}}"
+    summary: "{{name}} — ₦{{price}}"
     sortable_fields: [date, name, price]
     view_filters:
       - label: Sold out
